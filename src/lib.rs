@@ -1,3 +1,8 @@
+//! # Crate Minigrep
+//!
+//! `minigrep` is a collection of utilities to make performing string
+//! search more convenient.
+
 use std::env;
 use std::fs;
 use std::process;
@@ -61,6 +66,22 @@ pub fn run(config: Config)  -> Result<(), Box<dyn Error>> {
 //     }
 // }
 
+/// Search for term in file content
+/// 
+/// # Example
+/// 
+/// `
+/// let query = "tell";
+/// let contents = "
+/// This is an article content
+/// tell how to use the function.
+/// select a specific line
+/// ";
+/// let result = search(&config.query, &contents);
+/// 
+/// assert_eq!(vec!["tell how to use the function."], result);
+/// `
+/// 
 pub fn search<'a>(query: &str, contents: &'a str) -> Vec<&'a str> {
     contents
         .lines()
