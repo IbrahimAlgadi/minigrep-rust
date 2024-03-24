@@ -1,6 +1,6 @@
 use std::env;
 use std::process;
-use minigrep::Config;
+use hema_minigrep::Config;
 
 
 fn main() {
@@ -11,7 +11,7 @@ fn main() {
         process::exit(1);
     });
     // dbg!(&config);
-    if let Err(e) = minigrep::run(config) {
+    if let Err(e) = hema_minigrep::run(config) {
         eprintln!("Application error: {e}");
         process::exit(1);
     }
